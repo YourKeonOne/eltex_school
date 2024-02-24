@@ -2,8 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define SIZE 100
-
 struct abonent {
     char name[10];
     char second_name[10];
@@ -52,7 +50,7 @@ void delete_contact(int *c, struct abonent **cntct)
 	//---------------------------------------------
 	
 	int contact_number=0;
-	printf("Введите номер абонента, которого нужно удалить");
+	printf("Введите номер абонента, которого нужно удалить:");
 	scanf("%d", &contact_number);
 	
 	//Если номер записи меньше нуля или больше колличества записей, имеющихся в справочнике, возвращаемся в main
@@ -62,19 +60,13 @@ void delete_contact(int *c, struct abonent **cntct)
 	}
 	//--------------------------------
 	
-	
+
+	//Цикл, который будет двигать элементы влево
 	for (int i = contact_number - 1; i < *c - 1; i++){
     strcpy((*cntct)[i].name, (*cntct)[i+1].name);
     strcpy((*cntct)[i].second_name, (*cntct)[i+1].second_name);
     strcpy((*cntct)[i].tel, (*cntct)[i+1].tel);
    }
-
-	//Цикл, который будет двигать элементы влево
-	//for (int i= contact_number - 1; i<=*c-1;i++){
-	//		strcpy((*cntct)[i].name, (*cntct)[i+1].name);
-	//		strcpy((*cntct)[i].second_name, (*cntct)[i+1].second_name);
-	//		strcpy((*cntct)[i].tel, (*cntct)[i+1].tel);
-	//}
 	// --------------------------------------------------
 	
 	*c-=1;
