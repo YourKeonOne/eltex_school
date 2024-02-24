@@ -62,12 +62,19 @@ void delete_contact(int *c, struct abonent **cntct)
 	}
 	//--------------------------------
 	
+	
+	for (int i = contact_number - 1; i < *c - 1; i++){
+    strcpy((*cntct)[i].name, (*cntct)[i+1].name);
+    strcpy((*cntct)[i].second_name, (*cntct)[i+1].second_name);
+    strcpy((*cntct)[i].tel, (*cntct)[i+1].tel);
+   }
+
 	//Цикл, который будет двигать элементы влево
-	for (int i= contact_number - 1; i<=*c-1;i++){
-			strcpy((*cntct)[i].name, (*cntct)[i+1].name);
-			strcpy((*cntct)[i].second_name, (*cntct)[i+1].second_name);
-			strcpy((*cntct)[i].tel, (*cntct)[i+1].tel);
-	}
+	//for (int i= contact_number - 1; i<=*c-1;i++){
+	//		strcpy((*cntct)[i].name, (*cntct)[i+1].name);
+	//		strcpy((*cntct)[i].second_name, (*cntct)[i+1].second_name);
+	//		strcpy((*cntct)[i].tel, (*cntct)[i+1].tel);
+	//}
 	// --------------------------------------------------
 	
 	*c-=1;
