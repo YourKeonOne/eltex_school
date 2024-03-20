@@ -1,0 +1,14 @@
+ Компиляция плагинов:
+gcc -shared -fPIC -o libplus.so plus.c
+gcc -shared -fPIC -o libminus.so minus.c
+gcc -shared -fPIC -o libdivide.so divide.c
+gcc -shared -fPIC -o libmultiply.so multiply.c
+
+ Компиляция динамической библиотеки:
+gcc -shared -fPIC -o libisValid.so isValid.c
+ 
+Компиляция программы:
+gcc main.c -o main -lisValid -ldl -L. -Wl,-rpath=.
+
+Запуск программы:
+./main
