@@ -2,12 +2,12 @@ CC=gcc
 CFLAGS=-fPIC
 LDFLAGS=-shared
 LIBS=-ldl
-RM=rm -f
+RM=rm -rf
 
 all: libplus.so libminus.so libdivide.so libmultiply.so libisValid.so main
 
 %.o : %.c
-	gcc $^ -c
+	$(CC) $^ -c
 
 libplus.so: plus.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
